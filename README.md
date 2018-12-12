@@ -1,25 +1,25 @@
 # chat-based summarization
 ## tokenization - POS tagging
-- filename --> pos_token/<dialogue number>.pickle
+- filename --> pos_token/<dialogue number>.pickle (folder pos_token2 for new edition)
 - format --> list of turn
+- use Spacy
 ```
 {
-	'speaker': speaker,
-	'turn': turn,
-	'act': act,
-	'text': text,
-	'tags': tags
+    'speaker': speaker,
+    'turn': turn,
+    'act': act,
+    'text': tokens,
+    'tags': tags,
+    'pos':pos
 }
-
 ```
- - speaker: A or B
+ - speaker: Mr.One or Mr.Two (แปลงจาก A และ B เพราะมี Mr.A อยู่ใน dialogue)
  - turn: number of turn in dialogue
  - act: labled act of each turn
  - text: tokenized text of each turn
- - tags: POS tags of the turn from nltk
-  - meaning of tag 
-  https://medium.com/@gianpaul.r/tokenization-and-parts-of-speech-pos-tagging-in-pythons-nltk-library-2d30f70af13b
-
+ - pos: POS tags from Spacy
+  - [meaning of tag](https://cs.nyu.edu/grishman/jet/guide/PennPOS.html)
+ - tag: dependency tag from Spacy
 
 Brief example for dialogues 1
 ```

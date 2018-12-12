@@ -1,5 +1,13 @@
 corpus/
 pos_token/
+pos_token2/
+en_core_web_sm-2.0.0/
+en_coref_md-3.0.0/
+
+*.tar.gz
+*.zip
+*.jar
+*.rar
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
