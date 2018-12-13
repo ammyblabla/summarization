@@ -3,6 +3,12 @@
 - filename --> pos_token/<dialogue number>.pickle (folder pos_token2 for new edition)
 - format --> list of turn
 - use Spacy
+- เพิ่มการแปลงสรรพนาม you, i และเปลี่ยนกริยาของมันให้เป็นกริยาเอกพจน์
+- แปลง 'll เป็น will และ n't เป็น not
+  - 'd ยังเป็นปัญหาเนื่องจากไม่ทราบว่าเป็น would หรือ had
+- วิธีการคร่าวๆ
+    - ยัดเข้าไปทั้ง dialogue จัดการหา coreference แทนอันที่ไม่เป็น pronoun แทน pronoun
+    - ยัดทีละ turn แปลง pronoun (กรณีสรรพนามบุรุษที่ 1 และ 2) และ verb (กรณีแปลง pronoun)
 ```
 {
     'speaker': speaker,
@@ -24,20 +30,21 @@
 Brief example for dialogues 1
 ```
 [
-	{
-		'act': 'directive',
-		'speaker': 'A',
-		'tags': [('So', 'RB'), ('Dick', 'NNP'), (',', ','),('how', 'WRB'), ('about', 'IN'),('getting', 'VBG'),('some', 'DT'), ('coffee', 'NN'),('for', 'IN'),('tonight', 'NN'), ('?', '.')],
-		'text': ['So','Dick',',','how','about','getting','some','coffee','for','tonight','?'],
-		'turn': 1
-	},
- 	{
-		'act': 'commissive',
-  		'speaker': 'B',
-  		'tags': [('Coffee', 'NN'),('?', '.'),('I', 'PRP'),('don', 'VBP'),('’', 'JJ'),('t', 'NN'),('honestly', 'RB'),('like', 'IN'),('that', 'DT'),('kind', 'NN'),('of', 'IN'),('stuff', 'NN'),('.', '.')],
-		'text': ['Coffee','?','I','don','’','t','honestly','like','that','kind','of','stuff','.'],
-		'turn': 2
-	},
-	..........
+    {
+        'speaker': 'Mr.One', 
+        'turn': 1, 
+        'act': 'directive', 
+        'text': ['So', 'None', ',', 'how', 'about', 'getting', 'some', 'coffee', 'for', 'tonight', '?'], 
+        'tags': ['RB', 'NN', ',', 'WRB', 'IN', 'VBG', 'DT', 'NN', 'IN', 'NN', '.'], 
+        'pos': ['ADV', 'NOUN', 'PUNCT', 'ADV', 'ADP', 'VERB', 'DET', 'NOUN', 'ADP', 'NOUN', 'PUNCT']
+    }, 
+    
+    {
+        'speaker': 'Mr.Two', 'turn': 2, 'act': 'commissive', 
+        'text': ['Coffee', '?', 'Mr', '.', 'Two', 'does', 'not', 'honestly', 'like', 'that', 'kind', 'of', 'stuff', '.'], 
+        'tags': ['NN', '.', 'NNP', '.', 'CD', 'VBZ', 'RB', 'RB', 'VB', 'DT', 'NN', 'IN', 'NN', '.'], 
+        'pos': ['NOUN', 'PUNCT', 'PROPN', 'PUNCT', 'NUM', 'VERB', 'ADV', 'ADV', 'VERB', 'DET', 'NOUN', 'ADP', 'NOUN', 'PUNCT']
+    }, 
+    .....
 ]
 ```
