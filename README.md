@@ -24,8 +24,8 @@
  - act: labled act of each turn
  - text: tokenized text of each turn
  - pos: POS tags from Spacy
-  - [meaning of tag](https://cs.nyu.edu/grishman/jet/guide/PennPOS.html)
- - tag: dependency tag from Spacy
+  - [meaning of pos tag](https://cs.nyu.edu/grishman/jet/guide/PennPOS.html)
+ - tag: [dependency tag from Spacy](https://nlp.stanford.edu/software/dependencies_manual.pdf)
 
 Brief example for dialogues 1
 ```
